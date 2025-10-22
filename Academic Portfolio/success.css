@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    background: rgba(188,108,37, 0.1);
+}
+nav{
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.3);
+    padding-bottom: 0.4em;
+    position: sticky;
+    background: linear-gradient( 120deg, rgb(254,250,224) 0%, rgb(188,108,37) 80%);
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    color: black;
+    text-decoration: none;
+
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 17px;
+    text-align:center;
+     color:rgb(254, 250, 224);
+}
+
+.nav-name{
+    font-weight: 600;
+    font-size: 21px;
+    padding: 0.7%;
+    margin-right: 4em;
+}
+.list{
+    padding: 5px 10px;
+      margin-top: 0.3em;
+    margin-left: 0.3em;
+    border: 1px solid ;
+    border-radius: 12px;
+    align-items: center;
+    background: rgb(188, 108, 37);
+    color:rgb(254, 250, 224);
+     box-shadow: 1px 3px 15px rgb(0,0,0,0.8);
+     transition: 0.5s;
+}
+.list:hover{
+      transform: scale(1.08);
+}
+.timeline{
+    width: 95.5%;
+    display: grid;
+    margin-left:2em;
+    margin-top: 4em;
+}
+.con1, .con2, .con3, .con4, .con5, .con6, .con7, .con8, .con9 {
+    margin-top: 2em;
+    padding: 2em;
+    padding: 2em;
+    margin:1em;
+    background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+    border-radius: 12px;
+}
+h2 {
+     font-size:30px ;
+    color: rgb(221,161,94);
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0;
+    letter-spacing: 0.02em;
+     text-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+}
+.p{
+    color:rgba(221, 162, 94, 0.852);
+    text-shadow: 1px 3px 15px rgb(0,0,0,0.8);
+}
+.h1{
+    font-size: 45px;
+    text-align: center;
+    padding: 1em;
+    padding-bottom: 0.3em;
+      background: linear-gradient(180deg, rgb(254, 250, 224) 30%, rgb(188, 108, 37) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Scroll-in animation for the timeline divs (con1, con2, ...) */
+.timeline > div {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+  transition-delay: var(--delay, 0ms);
+}
+.timeline > div.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.h3{
+      font-size: 25px;
+    text-align: center;
+    padding: 1em;
+    padding-top: 0.3em;
+      background: linear-gradient(180deg, rgb(254, 250, 224) 30%, rgb(188, 108, 37) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+.con9 p{
+    font-size: 18px;
+    padding-top: 0.3em;
+      background: linear-gradient(120deg, rgb(188,108,37) 30%, rgb(40,54,24)  70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.quote{
+    font-family:cursive;
+    font-size: 11px;
+    text-align: center;
+}
+footer{
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    gap:5%;
+    padding: 2em;
+     background: rgb(221,161,94);
+     background: linear-gradient( 120deg, rgba(221, 162, 94, 0.692) 10%, rgba(40,54,24, 0.205) 100%);
+}
+footer p{
+    font-size: 18px;
+    padding-left: 1em; 
+    color: rgb(40,54,24);
+}
+.span{
+    font-size: 20px;
+    color:rgb(27, 36, 16); 
+    text-decoration: underline;
+    font-weight: 600;
+}
+.mail, .dev, .tel{
+    width: 28%;
+    font-size: 20px;
+    
+}
+
+/* HERO STATIC: two layered backgrounds that cross-fade */
+.hero-static {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2em;
+  overflow: hidden;
+  box-shadow: 1px 3px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(180deg, rgba(40,54,24,0.85) 0%, rgba(127,143,75,0.65) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.hero-static .hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+  opacity: 1;
+  filter: saturate(0.95) contrast(0.95) brightness(0.6);
+}
+
+.hero-static .hero-bg.top {
+  z-index: 2;
+  opacity: 0;
+}
+
+.hero-static .hero-content {
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+/* responsive tweak */
+@media (max-width: 700px) {
+  .hero-static { height: 32vh; }
+  .hero-static h1 { font-size: 1.4rem; }
+  .hero-static h3 { font-size: 1rem; }
+}
+

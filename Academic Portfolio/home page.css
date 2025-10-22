@@ -1,0 +1,425 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    background: rgb(254, 250, 224);
+}
+nav{
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.3);
+    padding-bottom: 0.4em;
+    position: sticky;
+    background: linear-gradient( 120deg, rgb(254,250,224) 0%, rgb(188,108,37) 80%);
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 17px;
+  
+    text-align:center;
+     color:rgb(254, 250, 224);
+}
+
+.nav-name{
+    font-weight: 600;
+    font-size: 21px;
+    padding: 0.7%;
+    margin-right: 4em;
+   
+}
+.list{
+      margin-top: 0.3em;
+    margin-left: 0.3em;
+    border: 1px solid ;
+    padding-top: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 4px;
+    border-radius: 12px;
+    align-items: center;
+    background: rgb(188, 108, 37);
+    color:rgb(254, 250, 224);
+     box-shadow: 1px 3px 15px rgb(0,0,0,0.8);
+   transition: 0.5s;
+}
+.list:hover{
+      transform: scale(1.08);
+}
+.hero{
+    width: 100%;
+    height: 91vh;
+    background: linear-gradient( 120deg, rgb(188,108,37) 30%, rgb(254,250,224) 100%);
+    display: flex;
+    padding: 60px;
+    padding-top: 80px;
+    justify-content: space-between;
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.3);
+}
+
+.hero h1{
+    font-size: 4em;
+    font-weight: bold;
+    color:rgb(254, 250, 224);
+    text-shadow: 1px 3px 15px rgb(0,0,0,0.3);;
+}
+.hero-img{
+    width: 20em;
+    height: 65vh;
+    margin-right: 9em;
+     box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+     border-radius: 50%;
+}
+.hero-p{
+    padding: 1.5em;
+    padding-left: 0;
+    line-height: 1.5em;
+    letter-spacing: 0.1em;
+    color: rgb(40,54, 24);
+    text-shadow: 1px 3px 15px rgb(0,0,0,0.3);
+}
+
+.certified{
+    padding: 2em;
+    width: 93%;
+    margin:1em;
+    margin-top: 7em;
+    margin-left: 2em;
+    position: relative;
+    height: 80vh;
+    background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+    border-radius: 12px;
+}
+.certified h1{
+    font-size:40px ;
+    color: rgb(221,161,94);
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+     text-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+}
+.certified p{
+    color:rgb(221,161,94);
+    text-shadow: 1px 3px 15px rgb(149, 167, 89);
+}
+.cer-see{
+    position: absolute;
+    right: 3em;
+    top: 16.5em;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 20px;
+    padding: 0.25em;
+    font-weight: 600;
+    color: rgb(40,54, 24);
+    background: rgb(221,161,94);
+    border: 2.2px solid ;
+    text-decoration: none;
+    box-shadow: 1px 3px 15px rgb(221,161,94, 0.5);
+}
+.obj-job{
+    padding: 2em;
+    width: 100%;
+    position: relative;
+    margin-bottom: 6em;
+    margin-top: 7em;
+    height: 80vh;
+    background: rgba(40,54,24, 0.155);
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.4);
+    
+}
+.obj-job h1{
+    font-size:40px ;
+    color: rgb(40,54,24);
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+     text-shadow: 1px 3px 15px rgb(188, 108, 37,0.5)
+}
+.obj-job p{
+    color:rgb(40,54,24);
+    text-shadow: 1px 3px 15px rgb(188, 108, 37,0.5)
+}
+.job-see{
+    position: absolute;
+    left: 3em;
+    top:19.4em;
+    border-radius: 6px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0.25em;
+    color: rgb(40,54,24);
+    background: rgba(40,54,24, 0.205);
+    text-decoration: none;
+    border: 2.2px solid;
+    box-shadow: 1px 3px 15px rgb(40,54,24, 0.505);
+}
+.flexer{
+    display: flex;
+    gap: 15%;
+    padding: 2em;
+    padding-top: 1.3em;
+}
+.job-img{
+    width: 22em;
+    border-radius: 10px;
+     box-shadow: 1px 3px 15px rgb(188, 108, 37,0.5);
+    height:55vh;
+}
+.unique{
+   padding: 2em;
+    width: 100%;
+    margin-bottom: 6em;
+    margin-top: 7em;
+    height: 80vh;
+    position: relative;
+    background: rgb(188,108,37);
+}
+
+.unique h1{
+     font-size:40px ;
+    color: rgb(40,54, 24);
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+    text-shadow: 0.7px 0.7px 0.7px rgb(0,0, 0)
+    
+}
+.unique p{
+    background: linear-gradient(120deg, rgb(40,54,24) 30%, rgb(96,108,56) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    text-shadow: 0.3px  0.3px 0.3px rgb(0,0,0);
+    margin-bottom: 2em;
+    letter-spacing: 0.05em;
+}
+.uni-see{
+    
+    font-size: 17px;
+    font-weight: 600;
+    padding: 7px 8px;
+    color: rgb(40, 54, 24);
+    border: 1.7px solid;
+    border-radius: 4px;
+    box-shadow: 2px 2px 16px rgb(40,54,24);
+    background: linear-gradient(2560deg, rgb(40,54,24) 30%, rgb(0,0,0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+.uni-img{
+    width: 22em;
+    border-radius: 10px;
+     box-shadow: 1px 3px 15px rgb(40,54,24);
+    height:55vh;
+}
+.Occupation{
+    width: 100%;
+    padding: 1em 2em;
+    height: 85vh;
+    position: relative;
+    margin-top: 7em;
+    background: rgb(222, 169, 108, 0.3);
+}
+.Occupation h1{
+    font-size: 3em;
+    color: rgb(221,161,94);
+    text-align: center;
+        background: linear-gradient(180deg, rgb(221,161,94) 30%, rgb(40,54,24) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    padding-bottom: 0;
+    
+}
+.Occupation p{
+     background: linear-gradient(2560deg, rgb(188,108,37) 30%, rgb(40,54,24) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.03em;
+}
+.line{
+    width: 72%;
+    height: 0.25em;
+    background: linear-gradient(2560deg, rgb(188,108,37) 30%, rgb(40,54,24) 100%);
+    margin-left: 10em;
+    margin-bottom: 1em;
+}
+.occ-see{
+    font-size: 17px;
+    font-weight: 600;
+     background: linear-gradient(2560deg, rgb(188,108,37) 30%, rgb(40,54,24) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 7px 8px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgb(40,54,24);
+    position: absolute;
+    margin-top: 1em;
+    margin-left: 28em;
+}
+
+.academic{
+    padding: 2em;
+    width: 93%;
+    margin:1em;
+    margin-top: 7em;
+    margin-left: 2em;
+    position: relative;
+    height: 86.5vh;
+    background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+    border-radius: 12px;
+}
+.academic h1{
+    font-size:40px ;
+    color: rgb(221,161,94);
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+     text-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+}
+.academic p{
+    color:rgb(221,161,94);
+    text-shadow: 1px 3px 15px rgb(149, 167, 89);
+    letter-spacing: 0.02em;
+}
+.aca-see{
+    position: absolute;
+    right: 6em;
+    top: 28.3em;
+    text-align: right;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 0.25em;
+    color: rgb(40,54, 24);
+    background: rgba(221, 162, 94, 0.913);
+    border: 2.2px solid ;
+    text-decoration: none;
+    box-shadow: 1px 3px 15px rgb(221,161,94, 0.5);
+}
+
+.conference{
+    padding: 2em;
+    width: 100%;
+    margin-bottom: 6em;
+    margin-top: 7em;
+    height: 84vh;
+    background: rgba(40,54,24, 0.155);
+    position: relative;
+    box-shadow: 1px 3px 15px rgb(0,0,0,0.4);
+    
+}
+.conference h1{
+    font-size:40px ;
+    color: rgb(40,54,24);
+    text-align: center;
+    padding: 0.1em;
+    padding-top: 0;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+     text-shadow: 1px 3px 15px rgb(188, 108, 37,0.5)
+}
+.conference p{
+    color:rgb(40,54,24);
+    text-shadow: 1px 3px 15px rgb(188, 108, 37,0.5)
+}
+.con-see{
+    position: absolute;
+    left: 3em;
+    top: 21em;
+    border-radius: 6px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0.25em;
+    color: rgb(40,54,24);
+    background: rgba(40,54,24, 0.205);
+    text-decoration: none;
+    border: 2.2px solid;
+    box-shadow: 1px 3px 15px rgb(40,54,24, 0.505);
+}
+footer{
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    gap:5%;
+    padding: 2em;
+     background: rgb(221,161,94);
+     background: linear-gradient( 120deg, rgba(221, 162, 94, 0.692) 10%, rgba(40,54,24, 0.205) 100%);
+}
+footer p{
+    font-size: 18px;
+    padding-left: 1em; 
+    color: rgb(40,54,24);
+}
+.span{
+    font-size: 20px;
+    color:rgb(27, 36, 16); 
+    text-decoration: underline;
+    font-weight: 600;
+}
+.mail, .dev, .tel{
+    width: 28%;
+    font-size: 20px;
+}
+
+/* Image slider wrapper + layered images */
+.img-slider-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.img-slider-wrapper img.img-slider-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease-in-out;
+  transform: translateX(0);
+  will-change: transform;
+  pointer-events: none;
+}
+.img-slider-wrapper img.img-slider-layer.top {
+  z-index: 2;
+  transform: translateX(100%); /* start off-canvas to the right */
+}
+.img-slider-wrapper img.img-slider-layer.bottom {
+  z-index: 1;
+  transform: translateX(0); /* visible slide */
+}
+
+/* Scroll-in animation for all sections except the hero */
+section:not(.hero) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+  transition-delay: var(--delay, 0ms);
+}
+
+/* when observed into view */
+section:not(.hero).in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
