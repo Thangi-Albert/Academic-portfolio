@@ -89,13 +89,13 @@ nav ul li a{
 }
 
 .certified{
+    /* previous layout preserved but tightened & centered */
     padding: 2em;
-    width: 93%;
-    margin:1em;
-    margin-top: 7em;
-    margin-left: 2em;
+    width: 86%;            /* reduced from 93% */
+    max-width: 1200px;     /* avoid stretching on very wide screens */
+    margin: 2rem auto;     /* center horizontally and give vertical breathing room */
     position: relative;
-    height: 80vh;
+    height: auto;          /* allow content to determine height */
     background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
     box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
     border-radius: 12px;
@@ -275,13 +275,12 @@ nav ul li a{
 }
 
 .academic{
+    /* previous layout preserved but tightened & centered */
     padding: 2em;
-    width: 93%;
-    margin:1em;
-    margin-top: 7em;
-    margin-left: 2em;
+    width: 86%;            /* reduced from 93% */
+    max-width: 1200px;
+    margin: 2rem auto;
     position: relative;
-    height: 86.5vh;
     background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
     box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
     border-radius: 12px;
@@ -302,13 +301,16 @@ nav ul li a{
     letter-spacing: 0.02em;
 }
 .aca-see{
-    position: absolute;
-    right: 6em;
-    top: 28.3em;
+
+      font-size: 17px;
+    font-weight: 600;
+    padding: 7px 8px;
+   position: absolute;
+    margin-top: 0.8em;
+    margin-left: 10em;
     text-align: right;
     font-weight: 600;
     border-radius: 5px;
-    padding: 0.25em;
     color: rgb(40,54, 24);
     background: rgba(221, 162, 94, 0.913);
     border: 2.2px solid ;
@@ -385,15 +387,18 @@ footer p{
 .img-slider-wrapper {
   position: relative;
   display: inline-block;
-  overflow: hidden;
+  overflow: hidden;       /* keep overflow clipped */
   vertical-align: middle;
+  width: 100%;            /* responsive */
+  box-sizing: border-box; /* include borders/padding in width */
+  padding: 0;             /* remove extra padding that caused overflow */
+  border: 0;              /* remove white border if undesired (adjust as needed) */
 }
 .img-slider-wrapper img.img-slider-layer {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;               /* shorthand for top/right/bottom/left: 0 */
+  width: 100%;            /* fill wrapper */
+  height: 100%;           /* fill wrapper */
   object-fit: cover;
   transition: transform 1s ease-in-out;
   transform: translateX(0);
@@ -422,4 +427,225 @@ section:not(.hero) {
 section:not(.hero).in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+  /* reduce large hero padding that can cause overflow */
+  .hero {
+    padding: 20px 16px;
+    box-sizing: border-box;
+  }
+
+  /* Flex containers stack safely and don't overflow */
+  .flexer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .flexer > div { width: 100%; margin-bottom: 0.8rem; }
+
+  /* Images: always fluid and constrained to container */
+  .img-area, .hero-img, .job-img, .uni-img, .img-slider-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .job-img, .uni-img {
+    height: auto;
+    max-height: 50vh;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Ensure slider wrapper doesn't exceed its container */
+  .img-slider-wrapper { max-width: 100%; width: 100%; }
+
+  /* Tighten nav/list spacing to avoid overflow */
+  nav ul { padding: 0 8px; box-sizing: border-box; }
+  nav ul li { min-width: 0; } /* allow items to shrink */
+
+  /* reduce large horizontal margins on centered sections */
+  .certified, .academic { margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+
+  /* ensure stacked flexer and put image-containing column first */
+	.flexer { display: flex; flex-direction: column; }
+	.flexer > * { order: 0; } /* reset */
+	/* preferred selector (modern browsers) */
+	.flexer > *:has(img) { order: -1; }
+	/* fallback for common DOM ordering where image is second child */
+	.flexer > *:nth-child(2) { order: -1; }
+
+	/* make images fluid */
+	.flexer img, .flexer .job-img, .flexer .uni-img { max-width:100%; height:auto; display:block; margin:0 auto; }
+
+  /* Make hero stack and show image first */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+    height: auto;        /* let content decide height */
+    min-height: 50vh;    /* comfortable minimum */
+    box-sizing: border-box;
+  }
+  .img-area { order: -1; width: 100%; max-width: 360px; margin: 0 0 1rem; }
+  .txt-area { order: 0; width: 100%; padding: 0 1rem; text-align: center; }
+
+  .hero-img {
+    width: 100%;
+    max-width: 300px;    /* tablet-friendly */
+    height: auto;
+    max-height: 40vh;
+    border-radius: 12px;
+    margin: 0 auto;
+  }
+
+  /* ensure sections expand to fit content */
+  .certified, .obj-job, .unique, .Occupation, .academic, .conference {
+    height: auto;
+    min-height: 50vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+}
+
+@media (max-width: 700px) {
+
+  /* Make CTAs full-width blocks on smaller screens and add top spacing */
+  .cer-see,
+  .job-see,
+  .aca-see,
+  .occ-see,
+  .con-see,
+  .uni-see {
+    position: static !important;
+    display: inline-block;
+    margin: 0.6rem auto;
+    margin-top: 1rem; /* added top margin */
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    top: auto;
+  }
+  .occ-see{
+     box-shadow: 2px 2px 5px rgb(40,54,24);
+  }
+}
+
+@media (max-width: 480px) {
+  
+
+  /* Final override for the smallest screens with top spacing */
+  .cer-see,
+  .job-see,
+  .aca-see,
+  .occ-see,
+  .con-see,
+  .uni-see {
+    position: static !important;
+    margin: 0.5rem 0;
+    margin-top: 1rem; /* added top margin */
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    top: auto;
+  }
+
+  /* remove any previously inserted extreme offsets */
+  .cer-see[style], .job-see[style], .aca-see[style], .con-see[style] {
+    top: auto !important;
+  }
+}
+
+/* Prevent any accidental horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Toggle button (hamburger) - base hidden */
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hamburger visual */
+.nav-toggle .hamburger {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: rgb(254,250,224);
+  position: relative;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: rgb(254,250,224);
+}
+.nav-toggle .hamburger::before { top: -7px; }
+.nav-toggle .hamburger::after  { top: 7px; }
+
+/* Small-screen behavior (<=400px) - switch removed */
+@media (max-width: 480px) {
+
+  .img-slider-wrapper img.img-slider-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  overflow-x: hidden;
+  height: 100%;
+}
+  /* show hamburger control */
+  .nav-toggle { display: inline-flex; }
+
+  /* container for the menu (kept present so .nav-name can be shown) */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0.6rem;
+    background: linear-gradient(120deg, rgb(254,250,224) 0%, rgb(188,108,37) 80%);
+    box-shadow: 1px 3px 12px rgba(0,0,0,0.15);
+    position: absolute;
+    top: 56px;
+    left: 6px;
+    right: 6px;
+    border-radius: 8px;
+    z-index: 60;
+  }
+
+  /* hide all items by default on small screens */
+  nav ul li { display: none; }
+
+  /* except the brand / nav-name which remains visible */
+  nav ul li.nav-name { display: block; }
+
+  nav ul li a { display: block; padding: 0.45rem 0.6rem; }
+
+  /* when toggled open via body.nav-open show full menu */
+  body.nav-open nav ul li { display: block; }
+
+  /* ensure nav area has space for controls */
+  .nav > nav { position: relative; padding: 8px 12px; }
+  .nav-toggle { position: absolute; right: 8px; top: 8px; z-index: 80; }
+
+  /* adjust list appearance */
+  nav ul li { border-radius: 6px; padding: 0 6px; }
+  nav ul li .list { box-shadow: none; background: transparent; color: rgb(40,54,24); }
+
+
 }

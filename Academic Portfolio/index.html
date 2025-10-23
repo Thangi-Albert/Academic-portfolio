@@ -11,6 +11,11 @@
 <body class="index">
     <section class="nav">
     <nav>
+        <!-- keep hamburger toggle, remove the switch control -->
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+
         <ul>
             <li class="list nav-name" style=" color: rgb(188, 108, 37); padding-bottom: 7px; background-color: rgb(254,250,224);border: 1.7px solid;"><a style=" color: rgb(188, 108, 37); font-size: 20px;"  href="index.html"> Dr. Ugo's Albert</a></li>
             <li class="list"> <a href="#"> <i style="padding-top: 0.3em;" class="fa-solid fa-people-group"></i> About Life & Family</a></li>
@@ -205,7 +210,7 @@ nternational Journal of Scientific Research in Education (IJSRE), Journal of
        <h1>Participated Conference and Seminars</h1>
         <div class="flexer">
             <div>
-        <p style="font-size: 16.5px;">
+        <p class="conference-p" style="font-size: 16.5px;">
 
 Throughout his academic career, Dr. Elenwa has actively participated 
 in numerous professional conferences, workshops, and seminars focused
@@ -350,6 +355,34 @@ He has also attended specialized workshops and seminars on e-learning
       });
     })();
     </script>
+    <script>
+(function(){
+  'use strict';
+  try {
+    const navToggle = document.querySelector('.nav-toggle');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', (e) => {
+        const open = document.body.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(!!open));
+        e.stopPropagation();
+      });
+      // close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!document.body.classList.contains('nav-open')) return;
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+        if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+          document.body.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+  } catch (err) {
+    /* no-op */
+  }
+})();
+</script>
 
 </body>
 </html>
