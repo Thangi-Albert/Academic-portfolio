@@ -5,7 +5,7 @@
      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 body{
-    background: rgb(254, 250, 224);
+    background: white;
 }
 nav{
     box-shadow: 1px 3px 15px rgb(0,0,0,0.3);
@@ -31,12 +31,19 @@ nav ul li a{
 }
 
 .nav-name{
+    /* reduced width + truncation to prevent overflow */
     font-weight: 600;
     font-size: 21px;
-    padding: 0.7%;
-    margin-right: 4em;
-   
+    padding: 0.4% 0.6%;
+    margin-right: 1.5em;
+    display: inline-block;
+    max-width: 220px;        /* limit width on large screens */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
 }
+
 .list{
       margin-top: 0.3em;
     margin-left: 0.3em;
@@ -537,8 +544,17 @@ section:not(.hero).in-view {
 }
 
 @media (max-width: 480px) {
-  
-
+  h1{
+    font-size: 3.3em;
+  }
+.hero-img{
+  border-radius: 50%;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+.hero h1{
+  font-size: 3.3em;
+}
   /* Final override for the smallest screens with top spacing */
   .cer-see,
   .job-see,
@@ -558,6 +574,16 @@ section:not(.hero).in-view {
   /* remove any previously inserted extreme offsets */
   .cer-see[style], .job-see[style], .aca-see[style], .con-see[style] {
     top: auto !important;
+  }
+  /* prevent awkward breaks inside hero paragraph on small screens */
+  .hero-p {
+    white-space: normal;  /* allow normal wrapping between words */
+    line-break: none;
+    word-break: none;
+    text-align: center;        /* avoid breaking words mid-word */
+    overflow-wrap: normal;     /* prefer wrapping at spaces */
+    hyphens: none;             /* disable hyphenation */
+    line-height: 1.4;          /* slight tightening for small screens */
   }
 }
 
@@ -597,55 +623,234 @@ html, body {
 .nav-toggle .hamburger::before { top: -7px; }
 .nav-toggle .hamburger::after  { top: 7px; }
 
-/* Small-screen behavior (<=400px) - switch removed */
+/* Enhance hamburger: larger hit area, smooth transform into 'X' when open */
+.nav-toggle {
+	/* keep hidden except on small screens; styles enhanced for touch */
+	display: none;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;                 /* increased hit area */
+	border-radius: 6px;
+	min-width: 44px;
+	min-height: 44px;
+}
+.nav-toggle:focus-visible {
+	outline: 2px solid rgba(40,54,24,0.9);
+	outline-offset: 2px;
+}
+
+/* hamburger visual + animated pseudo-lines */
+.nav-toggle .hamburger {
+	display: inline-block;
+	width: 26px;                 /* slightly larger */
+	height: 2px;
+	background: rgb(254,250,224);
+	position: relative;
+	transition: background 300ms ease;
+	transform-origin: center;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 26px;
+	height: 2px;
+	background: rgb(254,250,224);
+	transition: transform 260ms cubic-bezier(.2,.9,.3,1), top 320ms ease, bottom 320ms ease, opacity 220ms;
+	transform-origin: center;
+}
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after  { top: 8px; }
+
+/* When menu open (use your existing toggle that adds body.nav-open) animate to X */
+body.nav-open .nav-toggle .hamburger {
+	background: transparent; /* hide middle line */
+}
+body.nav-open .nav-toggle .hamburger::before {
+	transform: translateY(8px) rotate(45deg);
+}
+body.nav-open .nav-toggle .hamburger::after {
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- mobile: fixed overlay menu that appears above hero --- */
 @media (max-width: 480px) {
 
-  .img-slider-wrapper img.img-slider-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-  overflow-x: hidden;
-  height: 100%;
-}
-  /* show hamburger control */
-  .nav-toggle { display: inline-flex; }
+	/* show hamburger control on small screens */
+	.nav-toggle { display: inline-flex; }
 
-  /* container for the menu (kept present so .nav-name can be shown) */
-  nav ul {
+	/* fixed overlay menu (present but hidden by default via opacity/pointer-events for smooth transitions) */
+	nav ul {
+		/* layout */
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin: 0;
+		padding: 14px;
+		box-sizing: border-box;
+
+		/* fixed overlay behaviour */
+		position: fixed;
+		left: 8px;
+		right: 8px;
+		top: 64px;                          /* below the nav bar */
+		max-height: calc(100vh - 80px);
+		overflow-y: auto;
+
+		/* visual */
+		background: linear-gradient(120deg, rgba(254,250,224,0.98) 0%, rgba(188,108,37,0.98) 80%);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+		border-radius: 10px;
+		padding-bottom: 20px;
+		z-index: 1000;
+
+		/* hidden state (transition friendly) */
+		opacity: 0;
+		transform: translateY(-6px);
+		pointer-events: none;
+		transition: opacity 240ms ease, transform 240ms ease;
+	}
+
+	/* visible when toggled via body.nav-open */
+	body.nav-open nav ul {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	/* keep brand visible in the nav (not inside overlay) */
+	nav ul li.nav-name {
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		padding: 0.20rem 0.1rem;
+		margin: 0 0.4rem;
+		font-size: 12px;
+		position: relative;
+		z-index: 1100; /* above overlay */
+		max-width: 160px;
+	}
+
+	/* larger, touch-friendly menu items */
+	nav ul li a {
+		display: block;
+		padding: 14px 12px;               /* larger hit target */
+		font-size: 18px;
+		color: rgb(40,54,24);
+		text-decoration: none;
+		border-radius: 6px;
+	}
+	nav ul li a:focus-visible {
+		outline: 2px solid rgba(40,54,24,0.9);
+		outline-offset: 2px;
+		background: rgba(40,54,24,0.06);
+	}
+
+	/* ensure hamburger stays above overlay and fixed visually */
+	.nav-toggle {
+		position: absolute;
+		right: 12px;
+		top: 12px;
+		z-index: 1200;
+	}
+}
+
+footer{
     display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin: 0;
-    padding: 0.6rem;
-    background: linear-gradient(120deg, rgb(254,250,224) 0%, rgb(188,108,37) 80%);
-    box-shadow: 1px 3px 12px rgba(0,0,0,0.15);
-    position: absolute;
-    top: 56px;
-    left: 6px;
-    right: 6px;
-    border-radius: 8px;
-    z-index: 60;
+    width: 100%;
+    height: 12vh;
+    gap:3%;
+}
+footer p{
+    font-size: 10.5px;
+    padding-left: 1em; 
+}
+.span{
+    font-size: 15px;
+}
+.dev{
+  height: 8vh;
+  padding-left: 1em;
+}
+.mail, .dev, .tel{
+    width: 100%;
+    font-size: 15px;
+}
+.line{
+    width: 90%;
+    height: 0.25em;
+    background: linear-gradient(2560deg, rgb(188,108,37) 30%, rgb(40,54,24) 100%);
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+/* Menu overlay enter animation */
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.995); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Menu item staggered entrance */
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth show/hide via body.nav-open (uses existing overlay positioning) */
+@media (max-width: 480px) {
+  /* prefer animation for entrance, keep transition fallback */
+  body.nav-open nav ul {
+    animation: menuIn 260ms cubic-bezier(.2,.9,.3,1) both;
   }
 
-  /* hide all items by default on small screens */
-  nav ul li { display: none; }
+  /* prepare menu items for staggered animation */
+  nav ul li {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  /* when overlay opens, animate items with small stagger */
+  body.nav-open nav ul li {
+    animation-name: menuItemIn;
+    animation-duration: 320ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.2,.9,.3,1);
+  }
+  body.nav-open nav ul li:nth-child(1) { animation-delay: 40ms; }
+  body.nav-open nav ul li:nth-child(2) { animation-delay: 100ms; }
+  body.nav-open nav ul li:nth-child(3) { animation-delay: 160ms; }
+  body.nav-open nav ul li:nth-child(4) { animation-delay: 220ms; }
+  body.nav-open nav ul li:nth-child(5) { animation-delay: 280ms; }
+  /* extra children will inherit the last delay; fine for most menus */
 
-  /* except the brand / nav-name which remains visible */
-  nav ul li.nav-name { display: block; }
+  /* When closing (removing body.nav-open) keep the overlay transition for a smooth exit */
+  nav ul {
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+}
 
-  nav ul li a { display: block; padding: 0.45rem 0.6rem; }
+/* Toggle (hamburger) transition polishing (applies globally and on small screens) */
+.nav-toggle {
+  transition: background 180ms ease, transform 250ms ease, opacity 250ms ease;
+  will-change: transform, opacity;
+}
 
-  /* when toggled open via body.nav-open show full menu */
-  body.nav-open nav ul li { display: block; }
+/* Smooth the hamburger line transitions */
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), opacity 250ms ease, background 250ms ease;
+}
 
-  /* ensure nav area has space for controls */
-  .nav > nav { position: relative; padding: 8px 12px; }
-  .nav-toggle { position: absolute; right: 8px; top: 8px; z-index: 80; }
+/* Slight scale effect on press for tactile feedback */
+.nav-toggle:active { transform: scale(0.98); }
 
-  /* adjust list appearance */
-  nav ul li { border-radius: 6px; padding: 0 6px; }
-  nav ul li .list { box-shadow: none; background: transparent; color: rgb(40,54,24); }
-
-
+/* Ensure the 'X' animation looks crisp when body.nav-open toggles */
+body.nav-open .nav-toggle .hamburger::before,
+body.nav-open .nav-toggle .hamburger::after {
+  transition-duration: 240ms;
+  transition-timing-function: cubic-bezier(.18,.9,.32,1);
 }
