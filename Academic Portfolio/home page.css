@@ -546,6 +546,7 @@ section:not(.hero).in-view {
 }
 
 @media (max-width: 480px) {
+
   h1{
     font-size: 3.3em;
   }
@@ -879,7 +880,16 @@ footer p{
   }
 }
 
-/* Toggle (hamburger) transition polishing (applies globally and on small screens) */
+
+
+/* Mobile-specific: keep nav-name readable and sized via padding on small screens */
+@media (max-width: 480px) {
+    nav ul li.nav-name,
+    .nav-name a{
+    
+        padding: 0.15rem 0.15rem !important; /* sizing only */
+        ;
+    }
 .nav-toggle {
   transition: background 180ms ease, transform 250ms ease, opacity 250ms ease;
   will-change: transform, opacity;
@@ -900,4 +910,18 @@ body.nav-open .nav-toggle .hamburger::before,
 body.nav-open .nav-toggle .hamburger::after {
   transition-duration: 240ms;
   transition-timing-function: cubic-bezier(.18,.9,.32,1);
+}
+
+/* Override: make nav-name display normally (no ellipsis) and size via padding */
+.nav-name,
+nav ul li.nav-name {
+    /* allow normal wrapping and visibility */
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+}
+.nav-name,
+nav ul li.nav-name {
+    text-overflow: clip !important;
 }

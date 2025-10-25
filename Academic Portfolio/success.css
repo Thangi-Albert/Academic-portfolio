@@ -196,4 +196,269 @@ footer p{
   .hero-static h1 { font-size: 1.4rem; }
   .hero-static h3 { font-size: 1rem; }
 }
+@media (max-width: 480px) {
+  /* Nav: stack items and reduce spacing for narrow screens */
+  nav ul {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    align-items: stretch;
+  }
+  nav ul li {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .nav-name {
+    padding: 0.5rem 0.6rem;
+    margin-right: 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  .list {
+    margin: 0.25rem 0;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  /* Hero (static) — reduce height and scale text */
+  .hero-static {
+    height: 28vh;
+    min-height: 140px;
+    padding: 0.75rem 1rem;
+  }
+  .hero-static .hero-content h1 {
+    font-size: 1.2rem;
+    margin: 0.1rem 0;
+  }
+  .hero-static .hero-content h3 {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* Timeline — single column flow and smaller cards */
+  .timeline {
+    width: 94%;
+    margin: 1rem auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.4rem;
+  }
+  .timeline > div {
+    margin: 0.6rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .timeline > div h2 {
+    font-size: 1.15rem;
+  }
+  .timeline > div p,
+  .timeline > div .p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  /* Headings used elsewhere — scale down for mobile */
+  .h1 { font-size: 1.6rem; padding: 0.6rem 0; }
+  .h3 { font-size: 1.05rem; padding: 0.4rem 0; }
+
+  /* Ensure images and content fit */
+  .img-area, .job-img, .uni-img {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    display: block;
+    margin: 0.5rem auto;
+  }
+
+  /* Footer: stack and tighten */
+footer {
+		display: block;           /* stop using flex */
+		padding: 1rem 1.2rem;     /* comfortable padding */
+		height: auto;             /* let content define height */
+		text-align: center;       /* center content */
+		background: linear-gradient(120deg, rgba(221,161,94,0.92) 10%, rgba(40,54,24,0.08) 100%); /* subtle continuity */
+		box-sizing: border-box;
+	}
+
+	/* Make direct children stack and span full width */
+	footer > * {
+		display: block;
+		width: 100%;
+		margin: 0.45rem 0;
+	}
+
+	/* Make contact columns into full-width blocks with clear spacing */
+	.mail, .dev, .tel {
+		display: block;
+		width: 100%;
+		margin: 0.4rem 0;
+		padding: 0.5rem 0.6rem;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+	/* Tidy footer text */
+	footer p {
+		padding-left: 0; /* remove left padding used for wider layouts */
+		font-size: 14px; /* slightly smaller for mobile */
+		margin: 0;
+		color: rgb(40,54,24);
+	}
+
+	/* Minor visual separator (optional) */
+	footer .line {
+		width: 90%;
+		margin: 0.6rem auto;
+	}
+
+	/* Reduce any large gaps that were designed for desktop flex layout */
+	footer > :not(.line) + :not(.line) { margin-top: 0.4rem; }
+ footer{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    gap:1%;
+    padding: 0;
+}
+footer p{
+    font-size: 10.5px;
+    text-align: left;
+}
+.span{
+    font-size: 15px;
+}
+.dev{
+  height: 8vh;
+}
+.mail, .dev, .tel{
+    width: 100%;
+    font-size: 15px;
+}
+
+
+  /* Minor helpers to avoid overflow */
+  html, body { overflow-x: hidden; }
+
+  /* Base toggle (hamburger) - hidden on desktop, accessible focus */
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;            /* touch-friendly hit area */
+  border-radius: 6px;
+  min-width: 44px;
+  min-height: 44px;
+}
+.nav-toggle:focus-visible {
+  outline: 2px solid rgba(40,54,24,0.9);
+  outline-offset: 2px;
+}
+
+/* hamburger visual + animated pseudo-lines */
+.nav-toggle .hamburger {
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: rgb(254,250,224);
+  position: relative;
+  transition: background 220ms ease;
+  transform-origin: center;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 26px;
+  height: 2px;
+  background: rgb(254,250,224);
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 180ms;
+  transform-origin: center;
+}
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after  { top: 8px; }
+
+/* When menu open (body.nav-open toggled by script) transform into X */
+body.nav-open .nav-toggle .hamburger {
+  background: transparent; /* hide middle line */
+}
+body.nav-open .nav-toggle .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+}
+body.nav-open .nav-toggle .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+  /* show hamburger control on small screens */
+  .nav-toggle { display: inline-flex; z-index: 1200; position: absolute; right: 12px; top: 12px; }
+
+  /* transform the primary nav list into a fixed overlay that sits above content */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    top: 64px; /* sits below the nav */
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+
+    background: linear-gradient(120deg, rgba(254,250,224,0.98) 0%, rgba(188,108,37,0.98) 80%);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    border-radius: 10px;
+    padding-bottom: 16px;
+    z-index: 1000;
+
+    /* hidden state */
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+
+  /* show overlay when toggled */
+  body.nav-open nav ul {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* keep brand visible in nav (not inside overlay) */
+  nav ul li.nav-name,
+  .nav-name {
+    display: block;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.4rem;
+    font-size: 13px;
+    z-index: 1100;
+    max-width: none;
+  }
+
+  /* menu items larger for touch */
+  nav ul li a {
+    display: block;
+    padding: 12px 10px;
+    font-size: 18px;
+    color: rgb(40,54,24);
+    text-decoration: none;
+    border-radius: 6px;
+  }
+  nav ul li a:focus-visible {
+    outline: 2px solid rgba(40,54,24,0.9);
+    outline-offset: 2px;
+    background: rgba(40,54,24,0.06);
+  }
+}
 
