@@ -10,8 +10,8 @@
 </head>
 <body class="index">
     <section class="nav">
-    <nav>
-      <li class="list nav-name" style=" color: rgb(188, 108, 37); padding-bottom: 7px; background-color: rgb(254,250,224);border: 1.7px solid;"><a style=" color: rgb(188, 108, 37); font-size: 20px; text-decoration: none;"  href="index.html"> Dr. Ugo's Albert</a></li>
+    <nav style="display: flex;">
+      <div class="list nav-name" style="width: 200px; color: rgb(188, 108, 37); padding-bottom: 7px; background-color: rgb(254,250,224);border: 1.7px solid;"><a style=" color: rgb(188, 108, 37); font-size: 20px; text-decoration: none;"  href="index.html"> Dr. Ugo's Albert</a></div>
         <!-- keep hamburger toggle, remove the switch control -->
         <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
           <span class="hamburger" aria-hidden="true"></span>
@@ -83,7 +83,7 @@ policy formulation, and the strategic planning of school systems. In addition, D
             Certifications And Qualifications 
         </h1>
              <div class="flexer">
-                <div>
+                <div style="height: 50vh;">
                 <img class="job-img" src="assets/CILT Cert.jpeg.jpg" alt="img">
                 </div>
             <div>
@@ -101,7 +101,7 @@ policy formulation, and the strategic planning of school systems. In addition, D
                   Rivers State Ministry of Education, and Philip Consulting
                    Ltd. His academic and professional qualifications reflect
                     a solid foundation in education, management, and administrative leadership.</p>
-                    <a href="success.html" class="cer-see"> Roadmap To Sucess  <i class="fa-solid fa-right-long"></i></a>
+                    <a href="success.html" class="cer-see" style="margin-top: 2em;"> Roadmap To Sucess  <i class="fa-solid fa-right-long"></i></a>
                     </div>
                     
                     </div>
@@ -142,7 +142,7 @@ an educator, administrator, and researcher devoted to societal transformation
             <div class="line"></div>
         <div class="flexer">
             <div>
-            <img class="uni-img" src="assets/istockphoto-1495088043-612x612.jpg" alt="img">
+            <img class="uni-img" src="assets/WhatsApp Image 2025-10-25 at 15.51.31_ce69cf55.jpg" alt="img">
             </div>
             <div>
         <p style="font-size: 16.5px;">
@@ -177,7 +177,7 @@ In addition to his academic experience, Dr. Elenwa has a rich professional
       <h1>Academic Research & Publications</h1>
         <div class="flexer">
             <div>
-            <img class="uni-img" src="assets/istockphoto-1495088043-612x612.jpg" alt="img">
+            <img class="uni-img" src="assets/WhatsApp Image 2025-10-25 at 15.51.33_f57751a9.jpg" alt="img">
             </div>
             <div>
         <p style="font-size: 16.5px;">
@@ -236,7 +236,7 @@ He has also attended specialized workshops and seminars on e-learning
 </div>
 
 <div >
-    <img class="job-img" src="assets/istockphoto-1495088043-612x612.jpg" alt="img">
+    <img class="job-img" src="assets/WhatsApp Image 2025-10-25 at 15.45.24_99ba0055.jpg" alt="img">
 </div>
   </div>
 
@@ -253,6 +253,9 @@ He has also attended specialized workshops and seminars on e-learning
         <div class="dev"><p>Developed by<span style="font-weight: 600;">Wilson🌟Albert</span></p>
                 <p>WhatsApp contact: +234-816-866-3760 </p></div>
     </footer>
+
+    <!-- add extra slider sources (comma-separated). Update these filenames to your extra images -->
+    <div id="extra-slider-srcs" data-src="assets/WhatsApp Image 2025-10-25 at 15.45.24_d2b7d6ad.jpg, assets/WhatsApp Image 2025-10-25 at 15.15.44_56a860aa.jpg, assets/WhatsApp Image 2025-10-25 at 15.45.25_40880e66.jpg, assets/WhatsApp Image 2025-10-25 at 15.45.25_197ae55b.jpg, assets/WhatsApp Image 2025-10-25 at 15.15.40_dc7e3e9c.jpg, assets/WhatsApp Image 2025-10-25 at 15.15.40_d15a5631.jpg, assets/WhatsApp Image 2025-10-25 at 15.15.40_77f2f8c2.jpg, assets/WhatsApp Image 2025-10-25 at 15.15.41_659c1c7e.jpg, assets/PGDE Degree.jpg, assets/PCPM Cert..jpg.jpg, assets/NCE Cert.jpg, assets/FIPMA Cert.jpg.jpg, assets/Cert. in Public Admin..jpg.jpg" style="display:none"></div>
 
     <!-- Image slider + section scroll script -->
     <script>
@@ -278,18 +281,40 @@ He has also attended specialized workshops and seminars on e-learning
       // avoid wrapping images that are already part of a slider
       imgs = imgs.filter(img => !img.closest('.img-slider-wrapper'));
 
-      const srcSet = Array.from(new Set(imgs.map(i => i.getAttribute('src')).filter(Boolean)));
+      // collect unique srcs from page images
+      const pageSrcs = Array.from(new Set(imgs.map(i => i.getAttribute('src')).filter(Boolean)));
+
+      // ALSO read extra sources from the hidden element (if present)
+      const extraEl = document.getElementById('extra-slider-srcs');
+      const extraSrcs = extraEl ? (String(extraEl.dataset.src || '').split(',').map(s => s.trim()).filter(Boolean)) : [];
+
+      // merge (pageSrcs first, then extras) while keeping uniqueness
+      const srcSet = [];
+      pageSrcs.concat(extraSrcs).forEach(s => { if (s && !srcSet.includes(s)) srcSet.push(s); });
+
       if (srcSet.length < 2 || imgs.length === 0) return;
 
-      // preload all images
+      // preload all images (includes extras)
       srcSet.forEach(s => { const p = new Image(); p.src = s; });
 
       const intervalMs = 3800; // time between slides
       const transitionMs = 1000; // match CSS transition-duration (1s)
 
+      const randIndexExclude = (n, exclude) => {
+        if (n <= 1) return 0;
+        let r = Math.floor(Math.random() * n);
+        // avoid immediate repeat; if collision, try a few times then accept
+        let attempts = 6;
+        while (r === exclude && --attempts > 0) r = Math.floor(Math.random() * n);
+        if (r === exclude) r = (exclude + 1) % n; // fallback
+        return r;
+      };
+
       imgs.forEach((origImg, idx) => {
+        // initialize current index to the position of the original src in srcSet,
+        // or a random index if not found
         let curIndex = Math.max(0, srcSet.indexOf(origImg.getAttribute('src')));
-        if (curIndex < 0) curIndex = idx % srcSet.length;
+        if (curIndex < 0) curIndex = Math.floor(Math.random() * srcSet.length);
 
         const rect = origImg.getBoundingClientRect();
         const width = Math.round(rect.width) || origImg.naturalWidth || 200;
@@ -323,7 +348,8 @@ He has also attended specialized workshops and seminars on e-learning
 
         setTimeout(() => {
           setInterval(() => {
-            const nextIndex = (curIndex + 1) % srcSet.length;
+            // pick a next index randomly (avoid immediate repeat)
+            const nextIndex = randIndexExclude(srcSet.length, curIndex);
             const nextSrc = srcSet[nextIndex];
             topImg.src = nextSrc;
 
@@ -337,6 +363,7 @@ He has also attended specialized workshops and seminars on e-learning
               });
 
               setTimeout(() => {
+                // after transition, swap sources and reset transforms without transition
                 origImg.src = topImg.src;
                 origImg.style.transition = 'none';
                 topImg.style.transition = 'none';
