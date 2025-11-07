@@ -27,7 +27,7 @@
 
 
      <!-- HERO: automatic background image slider for the h1/h3 -->
-  <div class="hero-static" aria-hidden="false" data-images="assets/istockphoto-1495088043-612x612.jpg, assets/MEd.jpg">
+  <div class="hero-static" aria-hidden="false" data-images="assets/WhatsApp Image 2025-10-14 at 09.14.33_f6d9f0c7.jpg, assets/MEd.jpg, assets/WhatsApp Image 2025-10-25 at 15.45.24_d2b7d6ad.jpg, assets/WhatsApp Image 2025-10-25 at 15.15.41_ce1e595c.jpg">
     <div class="hero-bg bottom"></div>
     <div class="hero-bg top"></div>
     <div class="hero-content">
@@ -43,7 +43,7 @@
 <div class="con1">
 <h2 class="h2">Early Foundations: The Birth of a Scholar (1970s–1980s)</h2>
 
-<p class="p">Born on 23rd February 1975, in the oil-rich region of Omoku, Rivers State,
+<p class="p">Born on 23rd February 1975, at  Akabuka, ONELGA Rivers State, Nigeria.
  Dr. Ugochukwu Albert Elenwa began life with a deep appreciation for discipline,
   faith, and education. From his days at St. Mary’s School, Omoku, and Government 
   Secondary School, Akabuka, young Albert showed early brilliance and leadership 
@@ -56,7 +56,7 @@
  <h2 class="h2">1994 – Building the Educational Foundation</h2>
 
 <p class="p">After years of hard work and commitment, he earned his Nigeria Certificate in Education 
-(NCE) in Agricultural Education from the Federal College of Education (Technical), Omok;u
+(NCE) in Agricultural Education from the Federal College of Education (Technical), Omoku
  in 1995. This milestone marked the beginning of his professional journey as an educator
   and community builder. During his teaching practice and early teaching years, he quickly 
   distinguished himself through his outstanding classroom control, mentorship of students,
@@ -72,7 +72,7 @@
  Bachelor of Science (B.Sc.) Honours degree in Public Administration at the University 
  of Port Harcourt, which he completed in 2006. This period of his life expanded his
   understanding of governance, organizational management, and policy implementation.
-He also acquired a Postgraduate Diploma (PGD) in Political and Administrative Studies, 
+He also acquired a Postgraduate Diploma (PGD) in Political and Administrative Studies (International Affairs), 
 broadening his insight into national and international administrative systems. These
  qualifications strengthened his ability to merge education and management — two pillars
   that would later define his professional identity.</p></div>
@@ -80,12 +80,12 @@ broadening his insight into national and international administrative systems. T
 
 
 <div class="con4">
-<h2 class="h2">2007–2012 – Industry Experience and Leadership Growth</h2>
+<h2 class="h2">2007–2012 – Industrial Experience and Leadership Growth</h2>
 
 <p class="p">Determined to develop a well-rounded career, Dr. Elenwa ventured into corporate 
 administration and logistics, taking up roles at Homan Engineering Nigeria Ltd. 
 and Ponticelli Nigeria Ltd., under the Total E&P OML 58 Project.
-As a Community Liaison Officer and later a Logistics Officer, he gained extensive
+ As a Community Liaison Officer and later a Logistics Officer, he gained extensive
  experience in project coordination, resource allocation, and personnel management. 
  He was responsible for supervising logistics operations, coordinating vehicles and
   materials, and fostering positive company-community relations.
@@ -102,12 +102,12 @@ During this period, he also earned professional certifications in Project Manage
 <h2 class="h2">2013–2019 – A Return to the Classroom and Academic Advancement</h2>
 
 <p class="p">After years in the corporate world, Dr. Elenwa returned to his first calling — education. 
-He joined the Local Government Universal Basic Education Authority (SUBEB), Omoku, as a
+He joined the Local Government Universal Basic Education Board (UBEB), Rivers state, as a
  classroom teacher, where he again proved his passion for student development and effective teaching.
 
 During this time, he pursued higher academic goals, earning an M.Ed. in Educational Management
  (Educational Planning) with a remarkable CGPA of 4.62 from Ignatius Ajuru University of Education,
-  Port Harcourt. His master’s research on “School Plant Diagnosis for Improved Academic Performance”
+  Port Harcourt. His master’s desertation was titled “School Plant Diagnosis for Improved Academic Performance”
    deepened his interest in educational infrastructure, policy analysis, and planning.
 
 He also participated in multiple professional development seminars and national conferences,
@@ -124,9 +124,9 @@ He also participated in multiple professional development seminars and national 
 <p class="p">In pursuit of greater academic excellence, Dr. Elenwa completed his Doctor of Philosophy 
 (Ph.D.) in Educational Management (Educational Planning) from Ignatius Ajuru University 
 of Education in 2022, with a focus on school mapping, plant planning, and policy analysis.
-His doctoral dissertation, “Planning School Mapping for Improved Access to Public Senior
+His doctoral thesies titled, “Planning School Mapping for Improved Access to Public Senior
  Secondary Education in Rivers State,” addressed key challenges in educational accessibility,
-  infrastructure distribution, and policy efficiency — offering practical solutions for national development.
+  infrastructure distribution, and policy efficiency — offering practical solutions for Educational development.
 
 This period marked a significant turning point in his academic journey as his research output
  expanded into journal publications, book chapters, and conference presentations. His works
@@ -229,7 +229,7 @@ to national and global educational reform. </p></div>
         const bottom = hero.querySelector('.hero-bg.bottom');
         const top = hero.querySelector('.hero-bg.top');
         const list = (hero.dataset.images || '').split(',').map(s => s.trim()).filter(Boolean);
-        const imgs = list.length ? list : ['assets/istockphoto-1495088043-612x612.jpg','assets/MEd.jpg'];
+        const imgs = list.length ? list : ['assets/WhatsApp Image 2025-10-14 at 09.14.33_f6d9f0c7.jpg','assets/MEd.jpg', 'assets/WhatsApp Image 2025-10-25 at 15.51.31_f9d655d2.jpg'];
         imgs.forEach(u => { const p = new Image(); p.src = u; }); // preload
 
         let index = 0;
@@ -277,6 +277,66 @@ to national and global educational reform. </p></div>
         }, { threshold: 0.15 });
         items.forEach(i => observer.observe(i));
       }
+
+      /* ---------- NAV / HAMBURGER TOGGLE (added) ---------- */
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('nav');
+      const menu = nav ? nav.querySelector('ul') : null;
+
+      if (navToggle && menu) {
+        // ensure overlay sits above all content
+        nav.style.zIndex = '1400';
+        menu.style.zIndex = '1400';
+        navToggle.style.zIndex = '1500';
+
+        const openMenu = () => {
+          document.body.classList.add('nav-open');
+          navToggle.setAttribute('aria-expanded', 'true');
+          // lock background scroll while menu open
+          document.documentElement.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden';
+        };
+        const closeMenu = () => {
+          document.body.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+        };
+
+        navToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (document.body.classList.contains('nav-open')) closeMenu(); else openMenu();
+        });
+
+        // close when clicking a link in the menu (single-page nav)
+        menu.addEventListener('click', (e) => {
+          const a = e.target.closest('a');
+          if (a) closeMenu();
+        });
+
+        // close when clicking outside the nav/menu
+        document.addEventListener('click', (e) => {
+          if (!document.body.classList.contains('nav-open')) return;
+          if (!nav.contains(e.target) && !navToggle.contains(e.target)) closeMenu();
+        }, { capture: true });
+
+        // close on Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && document.body.classList.contains('nav-open')) closeMenu();
+        });
+
+        // tidy up on resize: close menu when leaving mobile breakpoint
+        let lastWidth = window.innerWidth;
+        window.addEventListener('resize', () => {
+          const w = window.innerWidth;
+          // if grew beyond mobile threshold, ensure closed
+          if (lastWidth <= 480 && w > 480 && document.body.classList.contains('nav-open')) {
+            closeMenu();
+          }
+          lastWidth = w;
+        });
+      }
+
     } catch (err) {
       console.error('Initialization error:', err);
     }

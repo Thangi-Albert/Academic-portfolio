@@ -737,24 +737,25 @@ html, body {
 
 /* hamburger visual + animated pseudo-lines */
 .nav-toggle .hamburger {
-	display: inline-block;
-	width: 26px;                 /* slightly larger */
-	height: 2px;
-	background: rgb(254,250,224);
-	position: relative;
-	transition: background 300ms ease;
-	transform-origin: center;
+display: inline-block;
+  width: 26px;
+  height: 2px;
+  margin-bottom: 1.2em;
+  background: rgb(254,250,224);
+  position: relative;
+  transition: background 220ms ease;
+  transform-origin: center;
 }
 .nav-toggle .hamburger::before,
 .nav-toggle .hamburger::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	width: 26px;
-	height: 2px;
-	background: rgb(254,250,224);
-	transition: transform 260ms cubic-bezier(.2,.9,.3,1), top 320ms ease, bottom 320ms ease, opacity 220ms;
-	transform-origin: center;
+	  content: "";
+  position: absolute;
+  left: 0;
+  width: 26px;
+  height: 2px;
+  background: rgb(254,250,224);
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 180ms;
+  transform-origin: center;
 }
 .nav-toggle .hamburger::before { top: -8px; }
 .nav-toggle .hamburger::after  { top: 8px; }
@@ -774,7 +775,10 @@ body.nav-open .nav-toggle .hamburger::after {
 @media (max-width: 480px) {
 
 	/* show hamburger control on small screens */
-	.nav-toggle { display: inline-flex; }
+	.nav-toggle { display: inline-flex; 
+  box-shadow: 1px 1px 8px rgba(250, 250, 250, 0.265);
+margin-top: 0;
+min-height: 15px;}
 
 	/* fixed overlay menu (present but hidden by default via opacity/pointer-events for smooth transitions) */
 	nav ul {
@@ -1023,4 +1027,69 @@ nav ul li a:focus,
 		background: rgba(255,255,255,0.08) !important;
 		color: #fff !important;
 	}
+}
+
+/* HERO STATIC: two layered backgrounds that cross-fade (used by hero-static) */
+.hero-static {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2em;
+  overflow: hidden;
+  box-shadow: 1px 3px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(180deg, rgba(11,61,87,0.9) 0%, rgba(19,74,99,0.7) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+.hero-static .hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1000ms ease-in-out;
+  z-index: 1;
+  opacity: 1;
+  filter: saturate(0.95) contrast(0.95) brightness(0.65);
+}
+
+.hero-static .hero-bg.top {
+  z-index: 2;
+  opacity: 0;
+}
+
+.hero-static .hero-content {
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+/* preserve existing .hero-p sizing but make it centered in hero-static */
+.hero-static .hero-p {
+  color: rgba(255,255,255,0.95) !important;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+
+/* responsive tweaks */
+@media (max-width: 992px) {
+  .hero-static { height: 50vh; min-height: 220px; padding: 1rem; }
+  .hero-static .hero-p { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .hero-static { height: 40vh; min-height: 160px; padding: 0.8rem; }
+  .hero-static h1 { font-size: 1.6rem; }
+  .hero-static .hero-p { font-size: 0.95rem; line-height: 1.35; }
 }
