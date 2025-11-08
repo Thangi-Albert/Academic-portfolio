@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupational Pursuit</title>
+    <link rel="stylesheet" href="occupation.css">
+</head>
+<body>
+        <section class="nav">
+    <nav style="display: flex; justify-content: space-between;">
+         <div class="list nav-name" style="margin-right: 5em; padding-bottom: 7px; background-color: var(--nav-1);"><a style=" color: white; font-size: 20px; text-decoration: none;"  href="index.html"> Dr. Ugo's Albert</a></div>
+        <!-- keep hamburger toggle, remove the switch control -->
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <ul>
+            <li class="list"> <a href="#"><i style="padding-top: 0.3em;" class="fa-solid fa-people-group"></i>    About Life & Family</a></li>
+            <li class="list"  > <a href="success.html" > Success Roadmap </a></li>
+            <li class="list"  style=" background-color: rgb(250,250,250);"> <a href="#"  style="color: var(--nav-1); font-size: 18px;"> Occupational History</a></li>
+            <li class="list"> <a href="#"> Research & Publuications   <i style="padding-top: 0.3em;" class="fa-solid fa-book"></i></a></li>
+            <li class="list"> <a href="#"> Conference & Seminars  <i style="padding-top: 0.3em;" class="fa-solid fa-book-open-reader"></i></a></li>
+        </ul>
+    </nav>
+    </section>
+
+<div class="container">
+  <h1>Occupational History & Professional Experience</h1>
+
+  <p>Dr. Ugochukwu Albert Elenwa’s professional journey is defined by a lifetime of commitment to education, administration, and leadership. Over the years, he has excelled across teaching, academic supervision, and logistics management, building a career grounded in discipline, integrity, and service. His work reflects the fusion of academic expertise with practical leadership in both educational and corporate environments.</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <h3>Lecturer II – Ignatius Ajuru University of Education</h3>
+      <span>2025 – Present</span>
+      <p>Currently serving as Lecturer II, responsible for teaching, academic coordination, student assessment, and supervision of research projects. He also contributes to policy formulation and curriculum improvement within the Department of Educational Management.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Lecturer – Covenant College of Education, Aba</h3>
+      <span>2023 – 2024</span>
+      <p>Engaged in teaching and research at the institution affiliated with Abia State University. Focused on curriculum development, student evaluation, and research publication on educational planning and leadership.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Classroom Teacher – Rivers State SUBEB</h3>
+      <span>2014 – 2019</span>
+      <p>Taught social science subjects, mentored students, coordinated school programs, and contributed to school administration. Promoted effective learning strategies and positive student behavior.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Logistics Officer – Ponticelli Nigeria Ltd. (Total E&P Project)</h3>
+      <span>2009 – 2012</span>
+      <p>Managed logistics operations and transport coordination for large-scale industrial projects. Oversaw equipment mobilization, workforce movement, and resource allocation to support site operations.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Community Liaison Officer – Homan Engineering Nigeria Ltd.</h3>
+      <span>2007 – 2009</span>
+      <p>Served as a liaison between company and host communities to ensure smooth project operations. Mediated community issues, handled personnel administration, and promoted conflict-free collaboration.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Classroom Teacher – Community Secondary School, Osiakpu</h3>
+      <span>1999 – 2004</span>
+      <p>Developed lesson plans, taught social science subjects, and coordinated student welfare and extracurricular activities. Built foundational teaching experience that shaped his career in education.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Assistant Field Supervisor – Elf Agricultural Project</h3>
+      <span>1996 – 1997</span>
+      <p>Supervised farm operations, kept production records, and supported crop and livestock management programs. Gained early experience in coordination and agricultural education.</p>
+    </div>
+
+  </div>
+
+  <h2>Commitment to Service and Growth</h2>
+  <p>Throughout his career, Dr. Elenwa has demonstrated a steadfast commitment to professionalism, knowledge sharing, and institutional advancement. His diverse experiences across education, administration, and logistics have made him a versatile leader with a deep understanding of people, systems, and performance. He continues to inspire excellence and strives to build institutions that reflect the highest standards of education and service.</p>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Contact Information</h3>
+      <p><strong>Dr. Ugochukwu Albert Elenwa</strong></p>
+      <p>Email: <a href="mailto:ugochukwualbert@yahoo.com">ugochukwualbert@yahoo.com</a></p>
+      <p>Phone: 08037435275, 08054055343</p>
+      <p>Address: No. 2 Osere Nwaeze Street, Off Federal College Pipeline, Omoku, Rivers State, Nigeria.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Website Developer</h3>
+      <p><strong>Wilson Albert</strong></p>
+      <p>WhatsApp: <a href="https://wa.me/2348168663760" target="_blank">08168663760</a></p>
+      <p>Email: <a href="mailto:thangialbert@gmail.com">thangialbert@gmail.com</a></p>
+      <p>© 2025 All Rights Reserved</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Designed & Developed by Wilson Albert | Academic Portfolio of Dr. Ugochukwu Albert Elenwa</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- add JS to make the hamburger toggle functional on this page -->
+    <script>
+    (function(){
+      'use strict';
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('nav');
+      const menu = nav ? nav.querySelector('ul') : null;
+      if (!navToggle || !menu || !nav) return;
+
+      const openMenu = () => {
+        document.body.classList.add('nav-open');
+        navToggle.setAttribute('aria-expanded', 'true');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+      };
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      };
+
+      navToggle.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        document.body.classList.contains('nav-open') ? closeMenu() : openMenu();
+      });
+
+      // Close when a menu link is clicked
+      menu.addEventListener('click', (ev) => {
+        if (ev.target.closest('a')) closeMenu();
+      });
+
+      // Close when clicking outside nav/menu
+      document.addEventListener('click', (ev) => {
+        if (!document.body.classList.contains('nav-open')) return;
+        if (!nav.contains(ev.target) && !navToggle.contains(ev.target)) closeMenu();
+      }, { capture: true });
+
+      // Close on Escape
+      document.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Escape' && document.body.classList.contains('nav-open')) closeMenu();
+      });
+
+      // Close when resizing above mobile breakpoint
+      let lastW = window.innerWidth;
+      window.addEventListener('resize', () => {
+        const w = window.innerWidth;
+        if (lastW <= 480 && w > 480 && document.body.classList.contains('nav-open')) closeMenu();
+        lastW = w;
+      });
+    })();
+    </script>
+
+</body>
+</html>

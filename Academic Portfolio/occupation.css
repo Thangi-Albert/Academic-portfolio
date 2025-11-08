@@ -1,0 +1,313 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* color palette (match home page) */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --text-dark: #102028;
+  --muted: #6b7780;
+  --nav-1: #0b3d57;
+  --nav-2: #134a63;
+  --accent: #b87e2f;
+  --accent-2: #e9d7b0;
+  --card: #fbfcfd;
+  --shadow-rgba: rgba(8,18,25,0.10);
+}
+
+body{
+    background: var(--bg);
+    color: var(--text-dark);
+}
+nav{
+  /* subtle elevated shadow that matches theme */
+  box-shadow: 0 10px 30px rgba(11,61,87,0.10);
+  padding: 0.6rem 1rem;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(120deg, var(--nav-1), var(--nav-2));
+  z-index: 1300;                        /* ensure header sits above page content */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  backdrop-filter: saturate(120%) blur(4px);
+  -webkit-backdrop-filter: saturate(120%) blur(4px);
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-decoration: none;
+
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 15px;
+    text-align:center;
+     color: var(--surface);
+}
+
+.nav-name{
+    font-weight: 600;
+    font-size: 21px;
+    padding: 0.7%;
+    margin-right: 4em;
+}
+.list{
+     padding: 8px 18px;
+      margin-top: 0.3em;
+    margin-left: 0.3em;
+    border-radius: 12px;
+    align-items: center;
+    background: var(--nav-1);
+    color: #fff;
+     box-shadow: 0 8px 20px rgba(184,126,47,0.12);
+     transition: 0.5s;
+}
+.list:hover{
+      transform: scale(1.08);
+}
+
+  /* Page Container */
+  .container {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #0b3a5c;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: #134d7e;
+    margin-top: 40px;
+  }
+
+  p {
+    text-align: justify;
+    margin-bottom: 15px;
+  }
+
+  /* Timeline Styles */
+  .timeline {
+    position: relative;
+    margin: 50px 0;
+    padding-left: 30px;
+    border-left: 4px solid #0b3a5c;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 20px;
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: #0b3a5c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #cfe2f3;
+  }
+
+  .timeline-item h3 {
+    margin: 0;
+    color: #0b3a5c;
+    font-size: 1.2rem;
+  }
+
+  .timeline-item span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #134d7e;
+  }
+
+  .timeline-item p {
+    margin-top: 8px;
+    color: #333;
+  }
+
+   footer {
+    background-color: #0b3a5c;
+    color: #fff;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .footer-section {
+    max-width: 400px;
+    margin: 15px;
+  }
+
+  .footer-section h3 {
+    color: #fff;
+    border-bottom: 2px solid #4ea3ff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  .footer-section a {
+    color: #bde0fe;
+    text-decoration: none;
+  }
+
+  .footer-section a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-section {
+      margin-bottom: 25px;
+    }
+  }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+/* NAV overlay / toggle - consistent behaviour & accessibility */
+nav { position: relative; z-index: 1300; }
+
+/* Base toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 0;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5600;
+}
+.nav-toggle .hamburger { width: 26px; height: 2px; background: #fff; display:inline-block; position:relative; }
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after { content:""; position:absolute; left:0; width:26px; height:2px; background:#fff; }
+.nav-toggle .hamburger::before { top:-8px; } .nav-toggle .hamburger::after { top:8px; }
+body.nav-open .nav-toggle .hamburger { background: transparent; }
+body.nav-open .nav-toggle .hamburger::before { transform: translateY(8px) rotate(45deg); }
+body.nav-open .nav-toggle .hamburger::after  { transform: translateY(-8px) rotate(-45deg); }
+
+/* Backdrop: non-blurring and below the menu */
+body.nav-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 1200;
+  pointer-events: auto;
+}
+
+/* disable nav blur when overlay open and raise nav stacking */
+body.nav-open nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 2000 !important;
+}
+
+/* ensure panel and toggle are on top and interactive */
+body.nav-open nav ul,
+nav ul {
+  z-index: 2000 !important;
+  pointer-events: auto !important;
+}
+.nav-toggle { z-index: 2200 !important; }
+
+/* opaque mobile panel background to avoid visual bleed-through */
+@media (max-width: 480px) {
+  nav ul {
+    background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(249,241,230,0.99)) !important;
+    z-index: 2000 !important;
+  }
+  .nav-name { position: relative; z-index: 2100; }
+}
+
+/* Mobile overlay rules */
+@media (max-width: 480px) {
+  .nav-toggle { display: inline-flex; }
+  nav ul {
+    position: fixed;
+    left: 12px; right: 12px; top: 72px;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    display:flex; flex-direction: column; gap:10px;
+    padding: 12px; box-sizing: border-box;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,241,230,0.98));
+    box-shadow: 0 28px 64px rgba(8,18,25,0.36);
+    border: 1px solid rgba(11,61,87,0.06);
+    z-index: 5460;
+    opacity: 0; transform: translateY(-8px) scale(0.997);
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 260ms ease;
+  }
+  body.nav-open nav ul { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .nav-name { position: relative; z-index: 1470; }
+  nav ul li a:focus-visible {
+    outline: 3px solid rgba(184,126,47,0.18); outline-offset: 3px;
+    border-radius: 6px; background: rgba(11,61,87,0.04);
+    
+  }
+  nav ul li{
+    height: 3em;
+  }
+}
