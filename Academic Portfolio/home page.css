@@ -991,7 +991,7 @@ footer {
   @media (max-width: 768px) {
     .footer-container {
       flex-direction: column;
-      text-align: center;
+      text-align: left;
     }
 
     .footer-section {

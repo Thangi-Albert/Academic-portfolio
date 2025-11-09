@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Ugochukwu Albert Elenwa – Academic Portfolio | Research</title>
+    <link rel="stylesheet" href="research.css">
+     <script src="https://kit.fontawesome.com/2471e0f489.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+ <section class="nav">
+    <nav style="display: flex; justify-content: space-between;">
+         <div class="list nav-name" style="margin-right: 5em; padding-bottom: 7px; background-color: var(--nav-1);"><a style=" color: white; font-size: 20px; text-decoration: none;"  href="index.html"> Dr. Ugo's Albert</a></div>
+        <!-- keep hamburger toggle, remove the switch control -->
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <ul>
+            <li class="list"> <a href="index.html" style="padding:8.50px 4px ;"> Home</a></li> 
+            <li class="list"  > <a href="success.html" > Success Roadmap </a></li>
+            <li class="list"  > <a href="occupation.html"> Occupational History</a></li>
+            <li class="list" style=" background-color: rgb(250,250,250);"> <a href="research.html" style="color: var(--nav-1); font-size: 18px;"> Research & Publuications   <i style="padding-top: 0.3em;" class="fa-solid fa-book"></i></a></li>
+            <li class="list"> <a href="seminar.html"> Conference & Seminars  <i style="padding-top: 0.3em;" class="fa-solid fa-book-open-reader"></i></a></li>
+        </ul>
+    </nav>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Contact Information</h3>
+      <p><strong>Dr. Ugochukwu Albert Elenwa</strong></p>
+      <p>Email: <a href="mailto:ugochukwualbert@yahoo.com">ugochukwualbert@yahoo.com</a></p>
+      <p>Phone: 08037435275, 08054055343</p>
+      <p>Address: No. 2 Osere Nwaeze Street, Off Federal College Pipeline, Omoku, Rivers State, Nigeria.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Website Developer</h3>
+      <p><strong>Wilson Albert</strong></p>
+      <p>WhatsApp: <a href="https://wa.me/2348168663760" target="_blank">08168663760</a></p>
+      <p>Email: <a href="mailto:thangialbert@gmail.com">thangialbert@gmail.com</a></p>
+      <p>© 2025 All Rights Reserved</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Designed & Developed by Wilson Albert | Academic Portfolio of Dr. Ugochukwu Albert Elenwa</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    (function(){
+      'use strict';
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('nav');
+      const menu = nav ? nav.querySelector('ul') : null;
+      if (!navToggle || !menu || !nav) return;
+
+      const openMenu = () => {
+        document.body.classList.add('nav-open');
+        navToggle.setAttribute('aria-expanded', 'true');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+      };
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      };
+
+      navToggle.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        document.body.classList.contains('nav-open') ? closeMenu() : openMenu();
+      });
+
+      // Close when a menu link is clicked
+      menu.addEventListener('click', (ev) => {
+        if (ev.target.closest('a')) closeMenu();
+      });
+
+      // Close when clicking outside nav/menu
+      document.addEventListener('click', (ev) => {
+        if (!document.body.classList.contains('nav-open')) return;
+        if (!nav.contains(ev.target) && !navToggle.contains(ev.target)) closeMenu();
+      }, { capture: true });
+
+      // Close on Escape
+      document.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Escape' && document.body.classList.contains('nav-open')) closeMenu();
+      });
+
+      // Close when resizing above mobile breakpoint
+      let lastW = window.innerWidth;
+      window.addEventListener('resize', () => {
+        const w = window.innerWidth;
+        if (lastW <= 480 && w > 480 && document.body.classList.contains('nav-open')) closeMenu();
+        lastW = w;
+      });
+    })();
+    </script>
+
+</body>
+</html>
