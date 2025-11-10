@@ -89,6 +89,119 @@ nav ul li a{
 
 
 
+
+ :root{
+      --nav-bg: #0f4a5f;        /* deep teal */
+      --nav-accent: #0f6b89;    /* lighter teal */
+      --panel-bg: #07384b;      /* very dark teal for footer panel */
+      --accent: #43a0c6;        /* thin line accent */
+      --muted: #e6eef2;         /* text on dark bg */
+      --body-bg: #f5f6f7;
+      --content-max: 1100px;
+      --radius: 10px;
+      --text-dark: #09303b;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Montserrat",system-ui,Segoe UI,Roboto,Arial;
+      background:var(--body-bg);
+      color:var(--text-dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+
+
+    /* Page content */
+    .hero{
+      max-width:var(--content-max);
+      margin:32px auto;
+      padding:28px 22px;
+      background: #fff;
+      border-radius:12px;
+      box-shadow: 0 8px 24px rgba(12,30,38,0.06);
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:24px;
+      color:var(--nav-bg);
+    }
+    .lead{color:#395d6a; margin-bottom:18px;}
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:28px;
+      align-items:start;
+    }
+    .panel{
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      padding:20px;
+      border-radius:8px;
+    }
+    .panel h2{
+      margin:0 0 12px;
+      font-size:18px;
+      color:var(--nav-bg);
+      position:relative;
+      padding-bottom:8px;
+    }
+    .panel h2:after{
+      content:"";
+      height:3px;
+      width:60px;
+      background:var(--accent);
+      display:block;
+      margin-top:8px;
+      border-radius:3px;
+    }
+
+    /* Publications list */
+    .lists{  margin:0; padding:0; list-style:none; }
+    .lists li{ margin-bottom:14px; line-height:1.38; }
+    .meta{font-weight:600; color:var(--text-dark);}
+
+    /* responsive */
+    @media (max-width:980px){
+      .two-col{ grid-template-columns: 1fr; }
+      nav.primary{ display:none; }
+      .footer-grid{ flex-direction:column; gap:18px; }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  footer {
     background-color: #0b3a5c;
     color: #fff;
