@@ -6,7 +6,7 @@
      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 body{
-    background: var(--bg) !important;
+    background: rgb(241, 241, 250) !important;
   color: var(--text-dark) !important;
 }
 nav{
@@ -125,10 +125,11 @@ a{
 }
 
 .hero h1{
-    font-size: 4em;
+    font-size: 2.5em !important;
     font-weight: bold;
     color: #ffffff !important;
     text-shadow: 1px 3px 15px rgb(0,0,0,0.3);;
+    margin-top: 1.5em;
 }
 .hero-img{
     width: 20em;
@@ -139,9 +140,11 @@ a{
 }
 .hero-p{
     padding: 1.5em;
+    font-size: 0.8em;
     padding-left: 0;
     line-height: 1.5em;
     letter-spacing: 0.1em;
+    line-break:auto !important;
     color: rgba(255,255,255,0.92) !important;
     text-shadow: none !important;
 }
@@ -154,23 +157,24 @@ a{
     margin: 2rem auto;     /* center horizontally and give vertical breathing room */
     position: relative;
     height: auto;          /* allow content to determine height */
-    background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
+    background: #f5f5ff;
     box-shadow: 0 10px 28px var(--shadow-rgba) !important;
     border-radius: 12px;
 }
 .certified h1{
-    font-size:40px ;
-    color: rgba(135, 135, 239, 0.776) !important;
+    font-size:1.9em ;
+    color: var(--nav-1) !important;
     text-align: center;
     padding: 0.1em;
     padding-top: 0;
     
     letter-spacing: 0.02em;
-     text-shadow: 1px 3px 10px black;
 }
 .certified p{
-     color:rgba(165, 165, 238, 0.676) !important;
+     color: var(--nav-2) !important;
      text-shadow: none !important;
+     line-height: 1.42em;
+     font-size: 15px !important;
 }
 .cer-see{
     position: absolute;
@@ -181,9 +185,8 @@ a{
     font-size: 20px;
     padding: 0.25em;
     font-weight: 600;
-    color: var(--nav-1) !important;
-    background: rgb(221,161,94);
-    border: 2.2px solid ;
+    color: var(--bg) !important;
+    background: var(--nav-1);
     text-decoration: none;
     box-shadow: 1px 3px 15px rgb(221,161,94, 0.5);
 }
@@ -194,22 +197,21 @@ a{
     margin-bottom: 6em;
     margin-top: 7em;
     height: 80vh;
-    background: rgba(40,54,24, 0.155);
-    box-shadow: 1px 3px 15px rgb(0,0,0,0.4);
+    background: #f5f5ff;
     
 }
 .obj-job h1{
-    font-size:40px ;
+    font-size:1.9em ;
     color: var(--nav-1) !important;
     text-align: center;
     padding: 0.1em;
     padding-top: 0;
-    text-decoration: underline;
+   
     letter-spacing: 0.02em;
-     text-shadow: 1px 3px 15px rgb(188, 108, 37,0.5)
+     
 }
 .obj-job p{
-    color:var(--muted) !important;
+    color:var(--nav-1) !important;
 }
 .job-see{
     position: absolute;
@@ -219,12 +221,14 @@ a{
     text-align: right;
     font-weight: 600;
     font-size: 20px;
-    padding: 0.25em;
-    color: rgb(40,54,24);
-    background: rgba(40,54,24, 0.205);
-    text-decoration: none;
-    border: 2.2px solid;
-    box-shadow: 1px 3px 15px rgb(40,54,24, 0.505);
+   padding: 0.25em 0.5em ;
+    text-decoration: none !important;
+    color:rgb(11, 11, 87) !important;
+    background: #f6f7f8;
+    box-shadow: 1px 1px 10px rgb(40,54,24, 0.505);
+}
+.job-see:hover{
+  text-decoration: underline !important;
 }
 .flexer{
     display: flex;
@@ -245,39 +249,34 @@ a{
     margin-top: 7em;
     height: 80vh;
     position: relative;
-    background: rgb(188,108,37);
+   
 }
 
 .unique h1{
-     font-size:40px ;
+font-size:1.9em ;
     color: var(--nav-1) !important;
     text-align: center;
     padding: 0.1em;
     padding-top: 0;
-    text-decoration: underline;
     letter-spacing: 0.02em;
-    text-shadow: 0.7px 0.7px 0.7px rgb(0,0, 0)
     
 }
 .unique p{
-    background: linear-gradient(120deg, rgb(40,54,24) 30%, rgb(96,108,56) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    
     margin-bottom: 2em;
     letter-spacing: 0.05em;
 }
-.uni-see{
-    
+.uni-see{ 
     font-size: 17px;
     font-weight: 600;
     padding: 7px 8px;
-    color: rgb(40, 54, 24);
-    border: 1.7px solid;
+    color: rgb(26, 17, 78) !important;
     border-radius: 4px;
-    box-shadow: 2px 2px 16px rgb(40,54,24);
-    background: linear-gradient(2560deg, rgb(40,54,24) 30%, rgb(0,0,0) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.541);
+  
+}
+.uni-see:hover{
+    text-decoration: underline !important;
 }
 .uni-img{
     width: 22em;
@@ -294,10 +293,10 @@ a{
     background: rgb(222, 169, 108, 0.3);
 }
 .Occupation h1{
-    font-size: 3em;
+    font-size:1.9em ;
     color: rgb(221,161,94);
     text-align: center;
-        background: linear-gradient(180deg, rgb(221,161,94) 30%, rgb(40,54,24) 100%);
+        background: linear-gradient(80deg, rgb(221,161,94) 30%, rgb(40,54,24) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     padding-bottom: 0;
@@ -336,23 +335,25 @@ a{
     width: 86%;            /* reduced from 93% */
     max-width: 1200px;
     margin: 2rem auto;
+    margin-top: 9em;
     position: relative;
-    background: linear-gradient( 120deg, rgb(96,108,56) 10%, rgb(40,54,24) 100%);
+    background: #f5f5ff;
     box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
     border-radius: 12px;
 }
 .academic h1{
-  font-size:40px ;
-    color: rgba(135, 135, 239, 0.776) !important;
+  font-size:1.9em ;
+    color: var(--nav-1) !important;
     text-align: center;
     padding: 0.1em;
     padding-top: 0;
     letter-spacing: 0.02em;
-     text-shadow: 1px 3px 10px black;
 }
 .academic p{
-    color:rgba(165, 165, 238, 0.676) !important;
+    color: var(--nav-2) !important;
     letter-spacing: 0.02em;
+    font-size: 15px !important;
+    line-height: 1.42em;
 }
 .aca-see{
 
@@ -365,11 +366,10 @@ a{
     text-align: right;
     font-weight: 600;
     border-radius: 5px;
-    color: var(--nav-1) !important;
-    background: rgba(221, 162, 94, 0.913);
-    border: 2.2px solid ;
+    color: var(--bg) !important;
+    background: var(--nav-1);
     text-decoration: none;
-    
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.646);
 }
 
 .conference{
@@ -378,20 +378,17 @@ a{
     margin-bottom: 6em;
     margin-top: 7em;
     height: 84vh;
-    background: rgba(40,54,24, 0.155);
-    position: relative;
-    box-shadow: 1px 3px 15px rgb(0,0,0,0.4);
-    
+    background: #f5f5ff;
+    position: relative; 
 }
 .conference h1{
-    font-size:40px ;
+    font-size:1.9em ;
     color: var(--nav-1) !important;
     text-align: center;
     padding: 0.1em;
     padding-top: 0;
-    text-decoration: underline;
+    
     letter-spacing: 0.02em;
-     text-shadow: 1px 3px 15px rgb(188, 108, 37,0.5)
 }
 .conference p{
     color:var(--muted) !important;
@@ -399,17 +396,19 @@ a{
 .con-see{
     position: absolute;
     left: 3em;
+    color: var(--nav-1) !important;
     top: 21em;
     border-radius: 6px;
     text-align: right;
     font-weight: 600;
     font-size: 20px;
-    padding: 0.25em;
+    padding: 0.25em 0.5em ;
     color: rgb(40,54,24);
-    background: rgba(40,54,24, 0.205);
     text-decoration: none;
-    border: 2.2px solid;
-    
+   box-shadow: 1px 1px 6px rgb(0,0,0,0.4);
+}
+.con-see:hover{
+  text-decoration: underline;
 }
 
 /* Image slider wrapper + layered images */
@@ -572,10 +571,17 @@ section:not(.hero).in-view {
   h1{
     font-size: 3.3em;
   }
+  .hero{
+    background-image: url('assets/WhatsApp Image 2025-10-14 at 09.14.33_f6d9f0c7.jpg') !important;
+    background-position: cover !important ;
+    background-size:cover !important;
+    background-color: #07517592 !important;
+    background-blend-mode: color-burn !important;
+    background-repeat:no-repeat !important;
+
+  }
 .hero-img{
-  border-radius: 50%;
-  margin-left: 2em;
-  margin-top: 1em;
+  display: none;
 }
 .hero h1{
   font-size: 3.3em;
