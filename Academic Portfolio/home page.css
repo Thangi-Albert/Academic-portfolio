@@ -794,10 +794,10 @@ min-height: 15px;}
 	.nav-toggle {
 		position: absolute;
 		right: 12px;
-		top: 12px;
-		z-index: 1200;}
-
-
+		top: 1.4em;
+		z-index: 1200;
+     box-shadow: none;
+  }
 .line{
     width: 90%;
     height: 0.25em;
@@ -825,6 +825,7 @@ min-height: 15px;}
   /* prefer animation for entrance, keep transition fallback */
   body.nav-open nav ul {
     animation: menuIn 260ms cubic-bezier(.2,.9,.3,1) both;
+    background-color: #f5f5ff !important;
   }
 
   /* prepare menu items for staggered animation */
@@ -833,7 +834,16 @@ min-height: 15px;}
     transform: translateY(6px);
   }
   /* when overlay opens, animate items with small stagger */
+  body.nav-open nav ul li a{
+    color: var(--nav-1) !important;
+    font-size: 1.2em;
+  }
+   body.nav-open nav ul li a:hover{
+      text-decoration: underline !important;
+   }
   body.nav-open nav ul li {
+    background-color: #f5f5ff !important;
+    color:rgb(11, 11, 87);
     animation-name: menuItemIn;
     animation-duration: 320ms;
     animation-fill-mode: forwards;
@@ -937,6 +947,7 @@ nav ul li a:focus,
 	}
 	nav ul li a {
 		color: #fff !important;
+
 	}
 	/* Brand inside overlay: keep accent but add subtle text-shadow for legibility */
 	nav ul li.nav-name,
