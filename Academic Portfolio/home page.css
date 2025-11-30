@@ -836,7 +836,7 @@ min-height: 15px;}
   /* when overlay opens, animate items with small stagger */
   body.nav-open nav ul li a{
     color: var(--nav-1) !important;
-    font-size: 1.2em;
+    font-size: 0.9em;
   }
    body.nav-open nav ul li a:hover{
       text-decoration: underline !important;
@@ -1014,4 +1014,5 @@ footer {
     .footer-section {
       margin-bottom: 25px;
     }
+
   }
