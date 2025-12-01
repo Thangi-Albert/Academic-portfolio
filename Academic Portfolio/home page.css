@@ -338,7 +338,7 @@ font-size:1.9em ;
     margin-top: 9em;
     position: relative;
     background: #f5f5ff;
-    box-shadow: 1px 3px 15px rgb(0,0,0,0.6);
+    box-shadow: 1px 2px 15px rgb(0,0,0,0.2);
     border-radius: 12px;
 }
 .academic h1{
@@ -1016,3 +1016,4 @@ footer {
     }
 
   }
+
